@@ -265,10 +265,42 @@
 
         <footer style="text-align: center; padding-bottom: 40px; color: #888; font-size: 14px;">
             <p>&copy; 2024 Strango. All rights reserved.</p>
+            <a href="https://app.pulsetic.com/status/2Iqfb5RD/" target="_blank" id="status-widget" style="margin-top: 15px; display: none; align-items: center; justify-content: center; gap: 10px; font-size: 16px; text-decoration: none; color: #888;">
+                <span class="status-dot" style="width: 12px; height: 12px; background-color: #2ecc71; border-radius: 50%; display: inline-block; box-shadow: 0 0 5px rgba(46, 204, 113, 0.5);"></span>
+                <span id="status-text">All systems operational</span>
+            </a>
         </footer>
     </section>
 
     <script src="script.js"></script>
+    <script>
+        // Check system status
+        fetch('https://api.pulsetic.com/public/status/2Iqfb5RD', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ "password": null })
+        })
+        .then(response => response.json())
+        .then(data => {
+            const widget = document.getElementById('status-widget');
+            const text = document.getElementById('status-text');
+            const dot = widget.querySelector('.status-dot');
+            
+            if (data.data && data.data.monitors) {
+                const allOnline = data.data.monitors.every(m => m.status === 'online');
+                widget.style.display = 'flex';
+                
+                if (!allOnline) {
+                    text.textContent = 'System issues detected';
+                    dot.style.backgroundColor = '#e74c3c'; // Red
+                    dot.style.boxShadow = '0 0 5px rgba(231, 76, 60, 0.5)';
+                }
+            }
+        })
+        .catch(err => console.log('Status check failed', err));
+    </script>
 </body>
 
 </html>
