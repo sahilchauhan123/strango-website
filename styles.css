@@ -498,15 +498,51 @@ body::before {
 }
 
 .scrolling-wrapper {
+    width: 100%;
+    overflow: hidden;
+    padding: 40px 0;
+    position: relative;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.ai-track {
     display: flex;
     gap: 32px;
-    overflow-x: auto;
-    padding: 40px 24px;
-    scrollbar-width: none;
-    /* Hide scrollbar */
-    -ms-overflow-style: none;
-    scroll-behavior: smooth;
-    mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+    width: max-content;
+    animation: scroll 30s linear infinite;
+}
+
+.ai-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        /* Move by 5 cards (320px each) + 5 gaps (32px each) */
+        transform: translateX(calc(-320px * 5 - 32px * 5));
+    }
+}
+
+@media (max-width: 768px) {
+    .scrolling-wrapper {
+        mask-image: none;
+        padding: 40px 0;
+    }
+
+    @keyframes scroll {
+        0% {
+            transform: translateX(0);
+        }
+
+        100% {
+            /* Move by 5 cards (85vw each) + 5 gaps (32px each) */
+            transform: translateX(calc(-85vw * 5 - 32px * 5));
+        }
+    }
 }
 
 .scrolling-wrapper::-webkit-scrollbar {
@@ -517,8 +553,6 @@ body::before {
     min-width: 320px;
     max-width: 320px;
     background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.5);
     border-radius: 40px;
     padding: 0;
@@ -532,6 +566,14 @@ body::before {
     display: flex;
     flex-direction: column;
     align-items: center;
+    scroll-snap-align: center;
+}
+
+@media (max-width: 768px) {
+    .ai-card {
+        min-width: 85vw;
+        max-width: 85vw;
+    }
 }
 
 .ai-card:hover {
@@ -567,8 +609,8 @@ body::before {
 }
 
 .ai-card:hover .card-glow {
-    opacity: 0.8;
-    filter: blur(70px);
+    /* opacity: 0.8; */
+    /* filter: blur(70px); */
     transform: translateX(-50%) scale(1.1);
 }
 
@@ -701,22 +743,23 @@ body::before {
 }
 
 .store-btn {
-    background: rgba(0, 0, 0, 0.2);
+    background: white;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     padding: 12px 24px;
     border-radius: 12px;
     display: flex;
     align-items: center;
+    color: var(--dark);
     gap: 12px;
-    color: white;
     text-decoration: none;
     transition: all 0.3s;
 }
 
 .store-btn:hover {
-    background: white;
-    color: var(--dark);
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+
 }
 
 /* Responsive */

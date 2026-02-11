@@ -2,6 +2,14 @@
 <html lang="en">
 
 <head>
+    <script>
+        (function () {
+            var urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('redirect') === 'playstore' || urlParams.get('r') === 'ps') {
+                window.location.replace("https://play.google.com/store/apps/details?id=com.strango.english");
+            }
+        })();
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
@@ -43,11 +51,6 @@
         "@type": "AggregateRating",
         "ratingValue": "4.8",
         "ratingCount": "1000"
-      },
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
       }
     }
     </script>
@@ -188,30 +191,100 @@
             </div>
 
             <div class="scrolling-wrapper">
-                <div class="ai-card">
-                    <div class="ai-avatar">🎯</div>
-                    <h3>The Teacher</h3>
-                    <p>Corrects your grammar instantly.</p>
-                </div>
-                <div class="ai-card">
-                    <div class="ai-avatar">💪</div>
-                    <h3>The Motivator</h3>
-                    <p>Boosts your confidence.</p>
-                </div>
-                <div class="ai-card">
-                    <div class="ai-avatar">💼</div>
-                    <h3>The Pro</h3>
-                    <p>Business English practice.</p>
-                </div>
-                <div class="ai-card">
-                    <div class="ai-avatar">😊</div>
-                    <h3>The Friend</h3>
-                    <p>Casual daily conversation.</p>
-                </div>
-                <div class="ai-card">
-                    <div class="ai-avatar">🎨</div>
-                    <h3>The Artist</h3>
-                    <p>Discuss creative topics.</p>
+                <div class="ai-track">
+                    <!-- Original List -->
+                    <div class="ai-card">
+                        <div class="card-glow" style="background: #9CCABD;"></div>
+                        <div class="card-content">
+                            <img src="https://pub-ab9111ea2a9741bba809ddf443459af8.r2.dev/c6yx5yjtvolnu05epykf-transformed.png"
+                                alt="Female Crush Avatar" class="ai-avatar-img">
+                            <h3>Female Crush</h3>
+                            <p>Talk with her. Sure you will fall in love with her</p>
+                        </div>
+                    </div>
+                    <div class="ai-card">
+                        <div class="card-glow" style="background: #F7AEB0;"></div>
+                        <div class="card-content">
+                            <img src="https://pub-ab9111ea2a9741bba809ddf443459af8.r2.dev/wxnetp7ly2rprc5nxks9_(1)-transformed.png"
+                                alt="Flirty Girl Avatar" class="ai-avatar-img">
+                            <h3>Flirty Girl</h3>
+                            <p>Talk with her to forget your pain</p>
+                        </div>
+                    </div>
+                    <div class="ai-card">
+                        <div class="card-glow" style="background: #DA8F7A;"></div>
+                        <div class="card-content">
+                            <img src="https://pub-ab9111ea2a9741bba809ddf443459af8.r2.dev/a7uscfnbccswajyfnvnk-transformed.png"
+                                alt="English Teacher Avatar" class="ai-avatar-img">
+                            <h3>English Teacher</h3>
+                            <p>He will help to improve your English</p>
+                        </div>
+                    </div>
+                    <div class="ai-card">
+                        <div class="card-glow" style="background: #AAC2CC;"></div>
+                        <div class="card-content">
+                            <img src="https://pub-ab9111ea2a9741bba809ddf443459af8.r2.dev/ovdqut37etazxo4935ym-transformed.png"
+                                alt="Motivator Avatar" class="ai-avatar-img">
+                            <h3>Motivator</h3>
+                            <p>Helps in Motivation and overcoming your fear</p>
+                        </div>
+                    </div>
+                    <div class="ai-card">
+                        <div class="card-glow" style="background: #DDDDD8;"></div>
+                        <div class="card-content">
+                            <img src="https://pub-ab9111ea2a9741bba809ddf443459af8.r2.dev/tvssabzep2mxy8kqdtvf-transformed.png"
+                                alt="Lawyer Avatar" class="ai-avatar-img">
+                            <h3>Lawyer</h3>
+                            <p>Talk and get some advice for your cases</p>
+                        </div>
+                    </div>
+
+                    <!-- Duplicated List for Seamless Loop -->
+                    <div class="ai-card">
+                        <div class="card-glow" style="background: #9CCABD;"></div>
+                        <div class="card-content">
+                            <img src="https://pub-ab9111ea2a9741bba809ddf443459af8.r2.dev/c6yx5yjtvolnu05epykf-transformed.png"
+                                alt="Female Crush Avatar" class="ai-avatar-img">
+                            <h3>Female Crush</h3>
+                            <p>Talk with her. Sure you will fall in love with her</p>
+                        </div>
+                    </div>
+                    <div class="ai-card">
+                        <div class="card-glow" style="background: #F7AEB0;"></div>
+                        <div class="card-content">
+                            <img src="https://pub-ab9111ea2a9741bba809ddf443459af8.r2.dev/wxnetp7ly2rprc5nxks9_(1)-transformed.png"
+                                alt="Flirty Girl Avatar" class="ai-avatar-img">
+                            <h3>Flirty Girl</h3>
+                            <p>Talk with her to forget your pain</p>
+                        </div>
+                    </div>
+                    <div class="ai-card">
+                        <div class="card-glow" style="background: #DA8F7A;"></div>
+                        <div class="card-content">
+                            <img src="https://pub-ab9111ea2a9741bba809ddf443459af8.r2.dev/a7uscfnbccswajyfnvnk-transformed.png"
+                                alt="English Teacher Avatar" class="ai-avatar-img">
+                            <h3>English Teacher</h3>
+                            <p>He will help to improve your English</p>
+                        </div>
+                    </div>
+                    <div class="ai-card">
+                        <div class="card-glow" style="background: #AAC2CC;"></div>
+                        <div class="card-content">
+                            <img src="https://pub-ab9111ea2a9741bba809ddf443459af8.r2.dev/ovdqut37etazxo4935ym-transformed.png"
+                                alt="Motivator Avatar" class="ai-avatar-img">
+                            <h3>Motivator</h3>
+                            <p>Helps in Motivation and overcoming your fear</p>
+                        </div>
+                    </div>
+                    <div class="ai-card">
+                        <div class="card-glow" style="background: #DDDDD8;"></div>
+                        <div class="card-content">
+                            <img src="https://pub-ab9111ea2a9741bba809ddf443459af8.r2.dev/tvssabzep2mxy8kqdtvf-transformed.png"
+                                alt="Lawyer Avatar" class="ai-avatar-img">
+                            <h3>Lawyer</h3>
+                            <p>Talk and get some advice for your cases</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
